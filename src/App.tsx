@@ -30,10 +30,30 @@ const App = () => {
     <>
       <GlobalFonts/>
       <GlobalStyle/>
-      <div style={({width: "289px"})}>
-        <Component.MeteorData meteorData={[{title: "Дата", data: "12 сентября 2021"}, {title: "Расстояние", data: "7 235 024 км "}, {title: "Размер", data: "85 м"}]} />
+      <div style={({width: "920px", margin: "25px"})}>
+        <Component.Meteor 
+          id={15}
+          name="2021 FQ"
+          isDanger={false}
+          isSmall={false}
+          size={85}
+          onDestroyClick={() => null}
+          meteorInfo={[
+            {
+              title: "Дата",
+              data: "12 сентября 2021"
+            },
+            {
+              title: "Расстояние",
+              data: "7 235 024 км"
+            },
+            {
+              title: "Размер",
+              data: "850 м"
+            }
+          ]}
+        />
       </div>
-      <Component.Button status="not addet" onClick={() => null}/>
     </>
   );
 }
