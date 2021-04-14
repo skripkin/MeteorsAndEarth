@@ -31,7 +31,7 @@ const App = () => {
       <GlobalFonts/>
       <GlobalStyle/>
       <div style={({width: "289px"})}>
-        <Component.Information leftData="Data" rightData="12 сентября 2021" />
+        <Component.MeteorData meteorData={[{title: "Дата", data: "12 сентября 2021"}, {title: "Расстояние", data: "7 235 024 км "}, {title: "Размер", data: "85 м"}]} />
       </div>
     </>
   );
