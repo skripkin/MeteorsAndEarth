@@ -8,7 +8,9 @@ const App = () => {
 
   return (
     <>
-      <Component.Meteor />
+      <div style={({width: "289px"})}>
+        <Component.Information leftData="Data" rightData="12 сентября 2021" />
+      </div>
     </>
   );
 }
