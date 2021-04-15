@@ -10,16 +10,16 @@ interface IInfo {
 }
 
 interface IMeteor {
-  id: number,
   meteorInfo: IInfo[],
   isDanger: boolean,
   name: string,
   size: number,
   onDestroyClick: () => void;
   isSmall?: boolean;
+  status?: "addet" | "not addet" | "out";
 }
 
-const Meteor = ({id, meteorInfo, isDanger, name, size, onDestroyClick, isSmall = false}: IMeteor) => {
+const Meteor = ({meteorInfo, isDanger, name, size, onDestroyClick, isSmall = false, status = "not addet"}: IMeteor) => {
   const getHowBigMeteor = () => {
     const meteor = size
     if(isSmall){
@@ -66,7 +66,7 @@ const Meteor = ({id, meteorInfo, isDanger, name, size, onDestroyClick, isSmall =
         </Styled.MeteorInfoBox>
         <Styled.AppraisalBox>
           <Styled.Appraisal>Оценка:<br/> <Styled.AppraisalDescription>{isDanger ? "опасен" : "не опасен"}</Styled.AppraisalDescription></Styled.Appraisal>
-          <Button status="not addet" onClick={onDestroyClick}/>
+          <Button status={status} onClick={onDestroyClick}/>
         </Styled.AppraisalBox>
       </Styled.MeteorInfoContainer>
     </Styled.MeteorBox>
