@@ -11,7 +11,7 @@ const Button = ({status, onClick}: IButton) => {
   const statusColor = status === "not addet" ? "#186DD6" : status === "addet" ? "#13ff09" : status === "out" ? "#ffc107" : "white";
 
   return(
-    <Styled.Container color={statusColor} onClick={onClick}>
+    <Styled.Container color={statusColor} onClick={(e) => { e.stopPropagation(); onClick() }}>
       {status === "addet" ?
         <Styled.ButtonTitle>Добавлен на уничтожение</Styled.ButtonTitle>
       : status === "not addet" ?
