@@ -49,16 +49,16 @@ const App = () => {
 
   const deleteFromDestroyMeteor = (dest: any) => {
     if(typeof dest === "object"){
-      const distArray: any = [];
+      const destArray: any = [];
       const asdf = deleteMeteor.map((item: any) => item.id);
 
       for(let i = 0; i < deleteMeteor.length; i++) {
         if(!dest.includes(asdf[i])) {
-          distArray.push(deleteMeteor[i])
+          destArray.push(deleteMeteor[i])
         }
       }
       
-      setDeleteMeteor(distArray);
+      setDeleteMeteor(destArray);
     } else {
       setDeleteMeteor(deleteMeteor.filter((item: any) => item.id !== dest))
     }
