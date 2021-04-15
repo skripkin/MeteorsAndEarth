@@ -1,12 +1,12 @@
 import React from 'react';
 import _get from "lodash/get";
-import * as Component from "./components";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import GlobalFonts from "./styles/fonts";
-import GlobalStyle from "./styles/global";
 import { ApiUrl } from "./mock";
+import { Home } from "./pages";
 
 const App = () => {
+  const [deleteMeteor, setDeleteMeteor] = React.useState<any>([]);
   const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
@@ -23,38 +23,36 @@ const App = () => {
   }
 
   const meteors = _get(data, "near_earth_objects", []);
-  console.log("Nasa Data", data);
-  console.log("Meteors", meteors);
+  const getMeteors = () => {
+    const meteorsNewArray: any[] = meteors.map((item: any) => {
+      return {
+        id: item.id,
+        name: item.name,
+        meters: item.estimated_diameter.meters,
+        isDanger: item.is_potentially_hazardous_asteroid,
+        date: item.close_approach_data.filter((item: any) => {
+          return new Date() <= new Date(item.close_approach_date)
+        })
+      }
+    }
+  );
+    return meteorsNewArray;
+  }
+
+  const destroyMeteor = (dest: any) => {
+    if(deleteMeteor.find((item: any) => item.id === dest.id)) {
+      alert("Метеор уже добавлен на уничтожение");
+    } else {
+      setDeleteMeteor([...deleteMeteor, dest])
+    }
+  };
 
   return (
-    <>
-      <GlobalFonts/>
-      <GlobalStyle/>
-      <div style={({width: "920px", margin: "25px"})}>
-        <Component.Meteor 
-          id={15}
-          name="2021 FQ"
-          isDanger={false}
-          isSmall={false}
-          size={85}
-          onDestroyClick={() => null}
-          meteorInfo={[
-            {
-              title: "Дата",
-              data: "12 сентября 2021"
-            },
-            {
-              title: "Расстояние",
-              data: "7 235 024 км"
-            },
-            {
-              title: "Размер",
-              data: "850 м"
-            }
-          ]}
-        />
-      </div>
-    </>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={() => <Home meteorsArray={getMeteors()} onClickDelete={destroyMeteor}/>} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
