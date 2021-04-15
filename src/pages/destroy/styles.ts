@@ -125,21 +125,48 @@ export const DistanceTab = styled.p<{isactive: boolean}>`
   `}
 `;
 
+export const MeteorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
 export const MeteorBox = styled.div`
-  margin-bottom: 16px;
+  max-width: 288px;
+  width: 100%;
+  margin-right: 12px;
+  margin-bottom: 12px;
   cursor: pointer;
-  
-  :last-child {
-    margin-bottom: 0;
+
+  :nth-child(3n-3){
+    margin-right: 0;
   }
 `;
 
 export const AssetsTitle = styled.p`
-  margin-top: 56px;
+  margin-top: 42px;
   margin-bottom: 46px;
   font-family: Helvetica;
   font-size: 16px;
   line-height: 24px;
   text-align: center;
   color: black;
+`;
+
+export const DestroyButtonTitle = styled.p`
+  font-family: Helvetica;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+`;
+
+export const DestroyButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  margin-left: auto;
+  padding: 14px 16px;
+  border-radius: 24px;
+  background-color: #186DD6;
 `;

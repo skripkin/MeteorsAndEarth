@@ -3,7 +3,7 @@ import _get from "lodash/get";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { ApiUrl } from "./mock";
-import { Home } from "./pages";
+import { Home, Destroy } from "./pages";
 
 const App = () => {
   const [deleteMeteor, setDeleteMeteor] = React.useState<any>([]);
@@ -47,9 +47,27 @@ const App = () => {
     }
   };
 
+  const deleteFromDestroyMeteor = (dest: any) => {
+    if(typeof dest === "object"){
+      const distArray: any = [];
+      const asdf = deleteMeteor.map((item: any) => item.id);
+
+      for(let i = 0; i < deleteMeteor.length; i++) {
+        if(!dest.includes(asdf[i])) {
+          distArray.push(deleteMeteor[i])
+        }
+      }
+      
+      setDeleteMeteor(distArray);
+    } else {
+      setDeleteMeteor(deleteMeteor.filter((item: any) => item.id !== dest))
+    }
+  };
+
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/destroy" component={() => <Destroy destroyMeteor={deleteMeteor} onClickDelete={deleteFromDestroyMeteor}/>} />
         <Route path="/" component={() => <Home meteorsArray={getMeteors()} onClickDelete={destroyMeteor}/>} />
       </Switch>
     </BrowserRouter>

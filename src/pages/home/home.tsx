@@ -1,4 +1,6 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+
 import moment from "moment";
 import 'moment/locale/ru'
 
@@ -7,11 +9,12 @@ import * as Component from "../../components";
 import * as Styled from "./styles";
 
 interface IProps {
-  meteorsArray: any[]
+  meteorsArray: any[];
   onClickDelete: (dest: any) => void;
 }
 
 const Home = ({ meteorsArray, onClickDelete }:IProps) => {
+  const history = useHistory();
   const [check, setCheck] = React.useState(false);
   const [distance, setDistance] = React.useState(false);
   const type = distance ? "lunar" : "kilometers";
@@ -45,7 +48,7 @@ const Home = ({ meteorsArray, onClickDelete }:IProps) => {
           </div>
           <Styled.LinkFlex>
             <Styled.RoomTitle>Астероиды</Styled.RoomTitle>
-            <Styled.RoomLink to="#">Уничтожение</Styled.RoomLink>
+            <Styled.RoomLink onClick={() => history.push("destroy")}>Уничтожение</Styled.RoomLink>
           </Styled.LinkFlex>
         </Styled.TitleBox>
       </Styled.Header>
@@ -64,7 +67,6 @@ const Home = ({ meteorsArray, onClickDelete }:IProps) => {
       {filterMeteor.map((item: any) =>
         <Styled.MeteorBox key={item.name} onClick={() => console.log("Select meteor", item.id)}>
           <Component.Meteor 
-            id={item.id}
             name={item.name}
             isDanger={item.isDanger}
             isSmall={false}
