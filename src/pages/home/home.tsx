@@ -9,30 +9,21 @@ import * as Component from "../../components";
 import * as Styled from "./styles";
 
 interface IProps {
-  meteorsArray: any[];
+  meteorsArray: (type: string) => any[];
   onClickDelete: (dest: any) => void;
+  onGetId: (id: any) => void;
+  
 }
 
-const Home = ({ meteorsArray, onClickDelete }:IProps) => {
+const Home = ({ meteorsArray, onClickDelete, onGetId }:IProps) => {
   const history = useHistory();
   const [check, setCheck] = React.useState(false);
   const [distance, setDistance] = React.useState(false);
   const type = distance ? "lunar" : "kilometers";
 
-  const validMeteor = meteorsArray.map((item: any) => {
-    return { 
-      ...item,
-      date: item.date.reduce((a: any, c: any) => {
-        if(a.miss_distance[type] < c.miss_distance[type]) {
-          return a
-        } else {
-          return c
-        }
-      })
-    }
-  });
+  const SortArray = [...meteorsArray(type)];
 
-  const sortMeteor = validMeteor.sort((a: any, b: any) => Date.parse(a.date.close_approach_date) - Date.parse(b.date.close_approach_date));
+  const sortMeteor = SortArray.sort((a: any, b: any) => Date.parse(a.date.close_approach_date) - Date.parse(b.date.close_approach_date));
 
   const dangeres = sortMeteor.filter((item: any) => item.isDanger);
 
@@ -65,7 +56,7 @@ const Home = ({ meteorsArray, onClickDelete }:IProps) => {
         </Styled.FilterFlex>
       </Styled.FilterCase>
       {filterMeteor.map((item: any) =>
-        <Styled.MeteorBox key={item.name} onClick={() => console.log("Select meteor", item.id)}>
+        <Styled.MeteorBox key={item.name} onClick={() => {onGetId(item.id); history.push(`/meteor-${item.id}`)}}>
           <Component.Meteor 
             name={item.name}
             isDanger={item.isDanger}

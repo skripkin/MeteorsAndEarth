@@ -7,7 +7,7 @@ import * as Component from "../../components";
 import * as Styled from "./styles";
 
 interface IProp {
-  destroyMeteor: any;
+  destroyMeteor: any[];
   onClickDelete: (dest: any | any[]) => void;
 }
 
