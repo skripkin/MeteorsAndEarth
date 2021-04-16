@@ -4,6 +4,7 @@ import moment from "moment";
 
 import * as Component from "../../components";
 
+import * as Home from "../home/styles";
 import * as Styled from "./styles";
 
 interface IProp {
@@ -25,31 +26,31 @@ const Destroy = ({ destroyMeteor, onClickDelete }: IProp) => {
   const filterMeteor = check ? dangeres : sortMeteor;
 
   return(
-    <Styled.Container>
-      <Styled.Header>
-        <Styled.TitleBox>
+    <Home.Container>
+      <Home.Header>
+        <Home.TitleBox>
           <div>
-            <Styled.Title>ARMAGGEDON V</Styled.Title>
-            <Styled.Description>Сервис мониторинга и уничтожения астероидов,<br/> опасно подлетающих к Земле.</Styled.Description>
+            <Home.Title>ARMAGGEDON V</Home.Title>
+            <Home.Description>Сервис мониторинга и уничтожения астероидов,<br/> опасно подлетающих к Земле.</Home.Description>
           </div>
-          <Styled.LinkFlex>
-            <Styled.RoomTitle>Астероиды</Styled.RoomTitle>
-            <Styled.RoomLink onClick={() => history.goBack()}>Верунться на главную</Styled.RoomLink>
-          </Styled.LinkFlex>
-        </Styled.TitleBox>
-      </Styled.Header>
-      <Styled.FilterCase>
-        <Styled.FilterCheckBoxCase>
-          <Styled.CheckBox type="checkbox" checked={check} onChange={() => setCheck(!check)}/>
-          <Styled.FilterCheckBox />
-          <Styled.FilterCheckBoxTitle>Показать только опасные</Styled.FilterCheckBoxTitle>
-        </Styled.FilterCheckBoxCase>
-        <Styled.FilterFlex> 
-          <Styled.DistanceTitle>Расстояние </Styled.DistanceTitle>
-          <Styled.DistanceTab isactive={distance ? false : true} onClick={() => setDistance(!distance)}>в километрах,</Styled.DistanceTab>
-          <Styled.DistanceTab isactive={distance ? true : false} onClick={() => setDistance(!distance)}>в дистанциях до луны</Styled.DistanceTab>
-        </Styled.FilterFlex>
-      </Styled.FilterCase>
+          <Home.LinkFlex>
+            <Home.RoomTitle>Астероиды</Home.RoomTitle>
+            <Home.RoomLink onClick={() => history.goBack()}>Верунться на главную</Home.RoomLink>
+          </Home.LinkFlex>
+        </Home.TitleBox>
+      </Home.Header>
+      <Home.FilterCase>
+        <Home.FilterCheckBoxCase>
+          <Home.CheckBox type="checkbox" checked={check} onChange={() => setCheck(!check)}/>
+          <Home.FilterCheckBox />
+          <Home.FilterCheckBoxTitle>Показать только опасные</Home.FilterCheckBoxTitle>
+        </Home.FilterCheckBoxCase>
+        <Home.FilterFlex> 
+          <Home.DistanceTitle>Расстояние </Home.DistanceTitle>
+          <Home.DistanceTab isactive={distance ? false : true} onClick={() => setDistance(!distance)}>в километрах,</Home.DistanceTab>
+          <Home.DistanceTab isactive={distance ? true : false} onClick={() => setDistance(!distance)}>в дистанциях до луны</Home.DistanceTab>
+        </Home.FilterFlex>
+      </Home.FilterCase>
 
       <Styled.MeteorContainer>
         {filterMeteor.map((item: any) =>
@@ -82,8 +83,8 @@ const Destroy = ({ destroyMeteor, onClickDelete }: IProp) => {
       <Styled.DestroyButton onClick={() => onClickDelete(destroyMeteors)}>
         <Styled.DestroyButtonTitle>Заказать бригаду для уничтожения {destroyMeteors.length === 0 ? "0" : `(${destroyMeteors.length})`} астероидов</Styled.DestroyButtonTitle>
       </Styled.DestroyButton>
-      <Styled.AssetsTitle>2021 © Все права и планета защищены</Styled.AssetsTitle>
-    </Styled.Container>
+      <Home.AssetsTitle>2021 © Все права и планета защищены</Home.AssetsTitle>
+    </Home.Container>
   )
 };
 
