@@ -7,6 +7,10 @@ export const MeteorName = styled.p`
   line-height: 32px;
   text-decoration-line: underline;
   color: #000000;
+
+  @media(max-width: 688px){
+    text-align: center;
+  }
 `;
 
 export const MeteorImageBox = styled.div<{isdanger: boolean}>`
@@ -21,17 +25,36 @@ export const MeteorImageBox = styled.div<{isdanger: boolean}>`
   isdanger && css`
     background: linear-gradient(90deg, #FFB199 0%, #FF0844 100%);
   `}
+
+  @media(max-width: 688px){
+    margin-bottom: 12px;
+  }
 `;
 
 export const MeteorImage = styled.img`
   margin: auto;
   display: block;
   width: 144px;
+
+  @media(max-width: 688px){
+    width: 288px;
+  }
 `;
 
 export const TopInfoMeteorBox = styled.div`
   display: flex;
   align-items: flex-start;
+  margin: 0 auto;
+
+  @media(max-width: 920px){
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media(max-width: 688px){
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 `;
 
 export const InfoBox = styled.div`
@@ -39,6 +62,11 @@ export const InfoBox = styled.div`
   flex-direction: column;
   flex: 1;
   margin-right: 24px;
+
+  @media(max-width: 688px){
+    margin-right: 0;
+    width: 100%;
+  }
 `;
 
 export const DataBox = styled.div`
@@ -59,6 +87,11 @@ export const ApproachTitle = styled.p`
   line-height: 48px;
   text-align: center;
   color: black;
+
+  @media(max-width: 370px){
+    font-size: 24px;
+    line-height: 24px;
+  }
 `;
 
 export const ApproachBox = styled.div`
@@ -66,6 +99,10 @@ export const ApproachBox = styled.div`
   margin: 12px 0;
   border: 1.5px solid black;
   border-radius: 10px;
+
+  @media(max-width: 625px){
+    margin: 12px;
+  }
 `;
 
 export const Date = styled.div`
