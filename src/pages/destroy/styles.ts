@@ -57,7 +57,19 @@ export const DestroyButton = styled.button`
   justify-content: center;
   margin-top: 24px;
   margin-left: auto;
+  margin-right: 12px;
   padding: 14px 16px;
   border-radius: 24px;
   background-color: #186DD6;
+
+  @media(max-width: 867px){
+    margin: 0 auto;
+    margin-top: 24px;
+  }
+
+  @media(max-width: 400px){
+    padding: 7px 8px;
+    margin: 0 12px;
+    margin-top: 12px;
+  }
 `;
