@@ -3,11 +3,12 @@ import _get from "lodash/get";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { ApiUrl } from "./mock";
-import { Home, Destroy } from "./pages";
+import { Home, Destroy, MeteorInfo } from "./pages";
 
 const App = () => {
   const [deleteMeteor, setDeleteMeteor] = React.useState<any>([]);
   const [data, setData] = React.useState([]);
+  const [getId, setGetId] = React.useState();
 
   React.useEffect(() => {
     const loadData = async () => {
@@ -23,6 +24,7 @@ const App = () => {
   }
 
   const meteors = _get(data, "near_earth_objects", []);
+  
   const getMeteors = () => {
     const meteorsNewArray: any[] = meteors.map((item: any) => {
       return {
@@ -38,9 +40,32 @@ const App = () => {
   );
     return meteorsNewArray;
   }
+  
+  const validMeteor = (type: string) => getMeteors().map((item: any) => {
+    return { 
+      ...item,
+      date: item.date.reduce((a: any, c: any) => {
+        if(a.miss_distance[type] < c.miss_distance[type]) {
+          return a
+        } else {
+          return c
+        }
+      })
+    }
+  });
 
   const destroyMeteor = (dest: any) => {
-    if(deleteMeteor.find((item: any) => item.id === dest.id)) {
+    console.log("Dest in func", typeof dest);
+    if(typeof dest !== "object") {
+
+      if(deleteMeteor.find((item: any) => item.id === dest)){
+        alert("Метеор уже добавлен на уничтожение");
+      } else {
+        const meteorsArray = validMeteor("kilometers").filter((item: any) => item.id === dest && item);
+        setDeleteMeteor([...deleteMeteor, meteorsArray[0]]);
+      }
+
+    } else if(deleteMeteor.find((item: any) => item.id === dest.id)) {
       alert("Метеор уже добавлен на уничтожение");
     } else {
       setDeleteMeteor([...deleteMeteor, dest])
@@ -67,8 +92,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path={`/meteor-${getId}`} component={() => <MeteorInfo id={getId ? getId : ""} onDestroyClick={destroyMeteor}/>} />
         <Route path="/destroy" component={() => <Destroy destroyMeteor={deleteMeteor} onClickDelete={deleteFromDestroyMeteor}/>} />
-        <Route path="/" component={() => <Home meteorsArray={getMeteors()} onClickDelete={destroyMeteor}/>} />
+        <Route path="/" component={() => <Home meteorsArray={validMeteor} onClickDelete={destroyMeteor} onGetId={setGetId}/>} />
       </Switch>
     </BrowserRouter>
   );
