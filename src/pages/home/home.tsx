@@ -12,7 +12,6 @@ interface IProps {
   meteorsArray: (type: string) => any[];
   onClickDelete: (dest: any) => void;
   onGetId: (id: any) => void;
-  
 }
 
 const Home = ({ meteorsArray, onClickDelete, onGetId }:IProps) => {
@@ -35,7 +34,7 @@ const Home = ({ meteorsArray, onClickDelete, onGetId }:IProps) => {
         <Styled.TitleBox>
           <div>
             <Styled.Title>ARMAGGEDON V</Styled.Title>
-            <Styled.Description>Сервис мониторинга и уничтожения астероидов,<br/> опасно подлетающих к Земле.</Styled.Description>
+            <Styled.Description>Сервис мониторинга и уничтожения астероидов,<br className="adaptive"/> опасно подлетающих к Земле.</Styled.Description>
           </div>
           <Styled.LinkFlex>
             <Styled.RoomTitle>Астероиды</Styled.RoomTitle>

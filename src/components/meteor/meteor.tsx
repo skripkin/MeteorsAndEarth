@@ -45,6 +45,11 @@ const Meteor = ({meteorInfo, isDanger, name, size, onDestroyClick, isSmall = fal
   }
   return(
     <Styled.MeteorBox isdanger={isDanger} issmall={isSmall}>
+        <Styled.TopBoxForSmallAdaptive isdanger={isDanger}>
+          <Styled.AsteroidImage src="./asteroid.svg" alt="asteroid" asteroid={`${getHowBigMeteor()}px`} positionX={getPositionX()} positionY={getPositionY()} issmall={isSmall}/>
+          <Styled.DinoImage src="./dino.svg" alt="Dino"/>
+          <Styled.MeteorName>{name}</Styled.MeteorName>
+        </Styled.TopBoxForSmallAdaptive>
       {isSmall ?
         <Styled.TopBoxForSmall isdanger={isDanger}>
           <Styled.AsteroidImage src="./asteroid.svg" alt="asteroid" asteroid={`${getHowBigMeteor()}px`} positionX={getPositionX()} positionY={getPositionY()} issmall={isSmall}/>
@@ -52,10 +57,10 @@ const Meteor = ({meteorInfo, isDanger, name, size, onDestroyClick, isSmall = fal
           <Styled.MeteorName>{name}</Styled.MeteorName>
         </Styled.TopBoxForSmall>
       :
-        <>
+        <Styled.TopBig>
           <Styled.AsteroidImage src="./asteroid.svg" alt="asteroid" asteroid={`${getHowBigMeteor()}px`} positionX={getPositionX()} positionY={getPositionY()}/>
           <Styled.DinoImage src="./dino.svg" alt="Dino"/>
-        </>
+        </Styled.TopBig>
       }
       <Styled.MeteorInfoContainer>
         <Styled.MeteorInfoBox>

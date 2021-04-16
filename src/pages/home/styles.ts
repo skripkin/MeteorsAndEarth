@@ -9,14 +9,10 @@ export const Container = styled.div`
 export const Header = styled.header`
   margin-top: 37px;
   margin-bottom: 24px;
-`;
 
-export const TitleBox = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding-bottom: 24px;
-  border-bottom: 1px solid black;
+  @media(max-width: 920px){
+    margin-top: 24px;
+  }
 `;
 
 export const Title = styled.p`
@@ -25,6 +21,10 @@ export const Title = styled.p`
   font-size: 36px;
   line-height: 48px;
   color: black;
+
+  @media(max-width: 350px){
+    font-size: 24px;
+  }
 `;
 
 export const Description = styled.p`
@@ -32,11 +32,38 @@ export const Description = styled.p`
   font-size: 16px;
   line-height: 20px;
   color: black;
+
+  @media(max-width: 412px){
+    .adaptive{
+      display: none;
+    }
+  }
+`;
+
+
+export const TitleBox = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid black;
+
+  @media(max-width: 920px){
+    padding: 24px;
+  }
+
+  @media(max-width: 575px){
+    display: block;
+  }
 `;
 
 export const LinkFlex = styled.div`
   display: flex;
   align-items: center;
+
+  @media(max-width: 575px){
+    margin-top: 20px;
+  }
 `;
 
 export const RoomTitle = styled.p`
@@ -62,11 +89,29 @@ export const FilterCase = styled.div`
   justify-content: space-between;
   margin-top: 26px;
   margin-bottom: 24px;
+
+  @media(max-width: 920px){
+    margin: 24px;
+  }
+
+  @media(max-width: 470px){
+    display: block;
+  }
 `;
 
 export const FilterFlex = styled.div`
   display: flex;
   align-items: center;
+
+  @media(max-width: 635px){
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  @media(max-width: 470px){
+    margin-top: 14px;
+    justify-content: flex-start;
+  }
 `;
 
 export const FilterCheckBox = styled.div`
@@ -83,6 +128,10 @@ export const FilterCheckBoxTitle = styled.p`
   font-size: 16px;
   line-height: 20px;
   color: black;
+
+  @media(max-width: 635px){
+    white-space: nowrap;
+  }
 `;
 
 export const FilterCheckBoxCase = styled.label`
@@ -132,6 +181,10 @@ export const MeteorBox = styled.div`
   :last-child {
     margin-bottom: 0;
   }
+
+  @media(max-width: 920px){
+    padding: 0 24px;
+  }
 `;
 
 export const AssetsTitle = styled.p`
@@ -142,4 +195,9 @@ export const AssetsTitle = styled.p`
   line-height: 24px;
   text-align: center;
   color: black;
+
+  @media(max-width: 350px){
+    margin: 24px;
+    margin-top: 32px;
+  }
 `;
