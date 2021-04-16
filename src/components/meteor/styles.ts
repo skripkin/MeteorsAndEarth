@@ -9,6 +9,26 @@ export const TopBoxForSmall = styled.div<{ isdanger: boolean }>`
   isdanger && css`
     background: linear-gradient(90deg, #FFB199 0%, #FF0844 100%);
   `}
+
+  @media(max-width: 742px){
+    display: none;
+  }
+`;
+
+export const TopBoxForSmallAdaptive = styled.div<{ isdanger: boolean }>`
+  display: none;
+  position: relative;
+  height: 145px;
+  background: linear-gradient(90deg, #CFF37D 0%, #7DE88C 100%);
+
+  ${({isdanger}) =>
+  isdanger && css`
+    background: linear-gradient(90deg, #FFB199 0%, #FF0844 100%);
+  `}
+
+  @media(max-width: 742px) {
+    display: block;
+  }
 `;
 
 export const DinoImage = styled.img`
@@ -28,6 +48,12 @@ export const AsteroidImage = styled.img<{ asteroid: string, positionX: number, p
     width: ${asteroid};
     bottom: ${issmall ? "50%" :  50 - positionX + "%" };
     left: ${issmall ? 10 - positionY + "%" : 10 - positionY + "%"};
+
+    @media(max-width: 742px) {
+      width: ${asteroid};
+      bottom: 50%;
+      left: ${10 - positionY + "%"};
+    }
   `}
 `;
 
@@ -130,4 +156,59 @@ export const MeteorBox = styled.div<{isdanger: boolean, issmall?: boolean}>`
       margin: 0;
     }
   `}
+
+  @media(max-width: 742px) {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    height: 390px;
+    padding: 0;
+    background: none;
+
+    ${MeteorInfoContainer}{
+      width: 100%;
+      margin-left: 0;
+      flex: 1;
+      flex-direction: column;
+      background-color: white;
+    }
+
+    ${MeteorInfoBox}{
+      width: 100%;
+      padding: 16px;
+
+      & > ${MeteorName} {
+        display: none;
+      }
+    }
+
+    ${AppraisalBox}{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0;
+      margin-left: 0;
+      margin-bottom: 22px;
+    }
+
+    ${DinoImage}{
+      width: 35px;
+      right: 8px;
+      left: unset;
+      transform: scale(-1, 1);
+    }
+
+    ${MeteorName}{
+      position: absolute;
+      left: 16px;
+      bottom: 8px;
+      margin: 0;
+    }
+  }
+`;
+
+export const TopBig = styled.div`
+  @media(max-width: 742px){
+    display: none;
+  }
 `;
