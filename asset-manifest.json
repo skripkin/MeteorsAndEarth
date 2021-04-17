@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.js": "/static/js/main.d962cdce.chunk.js",
+    "main.js.map": "/static/js/main.d962cdce.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f4385243.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f4385243.js.map",
+    "static/js/2.81983725.chunk.js": "/static/js/2.81983725.chunk.js",
+    "static/js/2.81983725.chunk.js.map": "/static/js/2.81983725.chunk.js.map",
+    "index.html": "/index.html",
+    "static/js/2.81983725.chunk.js.LICENSE.txt": "/static/js/2.81983725.chunk.js.LICENSE.txt",
+    "static/media/HelveticaNeueCyr-Bold.ttf": "/static/media/HelveticaNeueCyr-Bold.613e9303.ttf",
+    "static/media/HelveticaNeueCyr-Bold.eot": "/static/media/HelveticaNeueCyr-Bold.83527cf0.eot",
+    "static/media/HelveticaNeueCyr-Bold.woff2": "/static/media/HelveticaNeueCyr-Bold.a7379022.woff2",
+    "static/media/HelveticaNeueCyr-Bold.woff": "/static/media/HelveticaNeueCyr-Bold.e8ac3e02.woff",
+    "static/media/HelveticaNeueCyr-Italic.woff2": "/static/media/HelveticaNeueCyr-Italic.0e02931e.woff2",
+    "static/media/HelveticaNeueCyr-Italic.woff": "/static/media/HelveticaNeueCyr-Italic.78ec9de5.woff",
+    "static/media/HelveticaNeueCyr-Italic.ttf": "/static/media/HelveticaNeueCyr-Italic.9ecfbd50.ttf",
+    "static/media/HelveticaNeueCyr-Italic.eot": "/static/media/HelveticaNeueCyr-Italic.c02ec72c.eot",
+    "static/media/HelveticaNeueCyr-Light.ttf": "/static/media/HelveticaNeueCyr-Light.371670cc.ttf",
+    "static/media/HelveticaNeueCyr-Light.woff": "/static/media/HelveticaNeueCyr-Light.c1b4dce5.woff",
+    "static/media/HelveticaNeueCyr-Light.woff2": "/static/media/HelveticaNeueCyr-Light.ca1c9d28.woff2",
+    "static/media/HelveticaNeueCyr-Light.eot": "/static/media/HelveticaNeueCyr-Light.fa2646c6.eot"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f4385243.js",
+    "static/js/2.81983725.chunk.js",
+    "static/js/main.d962cdce.chunk.js"
+  ]
+}
