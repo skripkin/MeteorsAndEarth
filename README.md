@@ -1,3 +1,7 @@
+## HubPage for test project
+
+https://skripkin.github.io/MeteorsAndEarth/
+
 ## Available Scripts
 
 In the project directory, you can run:
